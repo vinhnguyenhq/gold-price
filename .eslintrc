@@ -4,7 +4,7 @@
     "es6": true
   },
   "extends": ["react-app", "prettier"],
-  "plugins": ["react", "prettier"],
+  "plugins": ["react", "prettier", "simple-import-sort"],
   "parserOptions": {
     "ecmaVersion": 2018
   },
@@ -22,6 +22,7 @@
     "no-unused-vars": [
       "error",
       { "vars": "all", "args": "after-used", "ignoreRestSiblings": false }
-    ]
+    ],
+    "simple-import-sort/sort": "error"
   }
 }
