@@ -3,13 +3,11 @@ import * as React from 'react'
 
 const App = () => {
   return (
-    <React.StrictMode>
-      <ErrorBoundary>
-        <React.Suspense fallback={<Spinner isLoading />}>
-          <Router />
-        </React.Suspense>
-      </ErrorBoundary>
-    </React.StrictMode>
+    <ErrorBoundary>
+      <React.Suspense fallback={<Spinner isLoading />}>
+        <Router />
+      </React.Suspense>
+    </ErrorBoundary>
   )
 }
 

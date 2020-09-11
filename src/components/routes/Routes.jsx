@@ -10,10 +10,10 @@ const RouteConfig = function () {
   return (
     <Router>
       <Switch>
-        <Route exact path="/" component={Home} />
-        <Route path="/about" component={About} />
-        <Route path="/gold" component={Gold} />
-        <Route path="/currency" component={Currency} />
+        <Route exact path="/" render={() => <Home />} />
+        <Route path="/about" render={() => <About />} />
+        <Route path="/gold" render={() => <Gold />} />
+        <Route path="/currency" render={() => <Currency />} />
       </Switch>
     </Router>
   )
