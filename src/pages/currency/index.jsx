@@ -1,7 +1,8 @@
+import { Layout } from 'components'
 import * as React from 'react'
 
 const Currency = ({ title = 'Currency' }) => {
-  return <div>{title}</div>
+  return <Layout>{title}</Layout>
 }
 
 export default Currency

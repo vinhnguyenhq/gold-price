@@ -1,3 +1,5 @@
+import './App.less'
+
 import { ErrorBoundary, Router, Spinner } from 'components'
 import * as React from 'react'
 
