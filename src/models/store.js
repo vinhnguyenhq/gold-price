@@ -1,13 +1,13 @@
 import { configureStore } from '@reduxjs/toolkit'
 
 import authReducer from './auth'
-import currencyReducer from './currency'
+import exchangeRatesReducer from './exchange-rates'
 import goldReducer from './gold'
 
 export default configureStore({
   reducer: {
     auth: authReducer,
-    currency: currencyReducer,
+    exchangeRates: exchangeRatesReducer,
     gold: goldReducer,
   },
 })

@@ -1,8 +1,7 @@
-import { Layout } from 'components'
 import * as React from 'react'
 
 const About = ({ title = 'About' }) => {
-  return <Layout>{title}</Layout>
+  return <React.Fragment>{title}</React.Fragment>
 }
 
 export default About
