@@ -1,4 +1,4 @@
-import { AppLayout, Spinner } from 'components'
+import { AppLayout, ErrorBoundary, Spinner } from 'components'
 import * as React from 'react'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 
@@ -11,14 +11,16 @@ const RouteConfig = function () {
   return (
     <Router>
       <AppLayout>
-        <React.Suspense fallback={<Spinner isLoading />}>
-          <Switch>
-            <Route exact path="/" render={() => <Home />} />
-            <Route path="/about" render={() => <About />} />
-            <Route path="/gold" render={() => <Gold />} />
-            <Route path="/currency" render={() => <Currency />} />
-          </Switch>
-        </React.Suspense>
+        <ErrorBoundary>
+          <React.Suspense fallback={<Spinner isLoading />}>
+            <Switch>
+              <Route exact path="/" render={() => <Home />} />
+              <Route path="/about" render={() => <About />} />
+              <Route path="/gold" render={() => <Gold />} />
+              <Route path="/currency" render={() => <Currency />} />
+            </Switch>
+          </React.Suspense>
+        </ErrorBoundary>
       </AppLayout>
     </Router>
   )

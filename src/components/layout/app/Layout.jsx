@@ -1,61 +1,73 @@
-import './index.less'
-
-import {
-  DollarCircleOutlined,
-  GoldOutlined,
-  HomeOutlined,
-  InfoCircleOutlined,
-  MenuFoldOutlined,
-  MenuUnfoldOutlined,
-} from '@ant-design/icons'
-import { Layout, Menu } from 'antd'
 import * as React from 'react'
 import { Link } from 'react-router-dom'
 
-const { Header, Sider, Content, Footer } = Layout
-
-const DefaultLayout = ({ children }) => {
-  const [collapsed, setCollapsed] = React.useState(false)
-
-  const toggle = React.useCallback(() => setCollapsed(!collapsed), [collapsed])
-
+const AppLayout = ({ children }) => {
   return (
-    <Layout id="default-layout">
-      <Sider trigger={null} collapsible collapsed={collapsed}>
-        <div className="logo" />
+    <React.Fragment>
+      <nav className="navbar">
+        <div className="container">
+          <div className="navbar-brand">
+            <span className="navbar-burger burger" data-target="navbarMenu">
+              <span></span>
+              <span></span>
+              <span></span>
+            </span>
+          </div>
+          <div id="navbarMenu" className="navbar-menu">
+            <div className="navbar-end">
+              <div className=" navbar-item"></div>
+              <Link className="navbar-item is-active is-size-5 has-text-weight-semibold" to="/">
+                Home
+              </Link>
+              <Link className="navbar-item is-size-5 has-text-weight-semibold" to="/gold">
+                Gold
+              </Link>
+              <Link className="navbar-item is-size-5 has-text-weight-semibold" to="/currency">
+                Currency
+              </Link>
+              <Link className="navbar-item is-size-5 has-text-weight-semibold" to="/about">
+                About
+              </Link>
+            </div>
+          </div>
+        </div>
+      </nav>
 
-        <Menu theme="dark" mode="inline" defaultSelectedKeys={['1']}>
-          <Menu.Item key="1" icon={<HomeOutlined />}>
-            <Link to="/">Home</Link>
-          </Menu.Item>
-          <Menu.Item key="2" icon={<GoldOutlined />}>
-            <Link to="/gold">Gold</Link>
-          </Menu.Item>
-          <Menu.Item key="3" icon={<DollarCircleOutlined />}>
-            <Link to="/currency">Currency</Link>
-          </Menu.Item>
-          <Menu.Item key="4" icon={<InfoCircleOutlined />}>
-            <Link to="/about">About</Link>
-          </Menu.Item>
-        </Menu>
-      </Sider>
+      <section className="hero">
+        <div className="hero-body">
+          <div className="container">
+            <div className="columns">
+              <div className="column is-8 is-offset-2"></div>
+            </div>
 
-      <Layout className="site-layout">
-        <Header className="site-layout-background" style={{ padding: 0 }}>
-          {React.createElement(collapsed ? MenuUnfoldOutlined : MenuFoldOutlined, {
-            className: 'trigger',
-            onClick: toggle,
-          })}
-        </Header>
+            <section className="section">
+              <div className="columns">
+                <div className="column is-8 is-offset-2">
+                  <div className="content is-medium">
+                    <h2 className="subtitle is-4">September 15, 2020</h2>
+                    <h1 className="title">Exchange Rate Monitoring</h1>
+                    <p>A web application to keep track the exchange rates</p>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </div>
+        </div>
+      </section>
 
-        <Content className="site-layout-background" style={{ margin: '24px 24px 0', padding: 24, minHeight: 560 }}>
-          {children}
-        </Content>
+      <section className="section">
+        <div className="container has-text-centered is-widescreen">{children}</div>
+      </section>
 
-        <Footer style={{ textAlign: 'center' }}>Ant Design ©2018 Created by Ant UED</Footer>
-      </Layout>
-    </Layout>
+      <footer className="footer">
+        <div className="content has-text-centered">
+          <p>
+            <strong>Exchange Rates</strong>
+          </p>
+        </div>
+      </footer>
+    </React.Fragment>
   )
 }
 
-export default DefaultLayout
+export default AppLayout

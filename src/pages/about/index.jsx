@@ -1,7 +1,7 @@
 import * as React from 'react'
 
 const About = ({ title = 'About' }) => {
-  return <React.Fragment>{title}</React.Fragment>
+  return <h1 className="title">{title}</h1>
 }
 
 export default About
