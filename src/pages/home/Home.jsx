@@ -10,7 +10,7 @@ import { currentToDateMomentObject, DATE_FORMAT, fetchExchangeRates } from './en
 const SOURCE_OPTIONS = [
   {
     label: 'State Bank Of Vietnam',
-    value: 'sbv.com.vn',
+    value: 'sbv.gov.vn',
   },
   {
     label: 'Vietcombank',
